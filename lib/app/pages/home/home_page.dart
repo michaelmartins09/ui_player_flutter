@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:ui_player_flutter/shared/theme/strings.dart';
+import 'package:ui_player_flutter/app/shared/theme/strings.dart';
 
 class HomePage extends StatefulWidget {
   @override
