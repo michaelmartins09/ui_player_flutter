@@ -26,8 +26,17 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: <Widget>[
               Container(
-                height: size.width * 0.8,
-                width: size.width * 0.8,
+                height: size.width * 0.75,
+                width: size.width * 0.75,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 20,
+                      color: Theme.of(context).primaryColor.withOpacity(0.2)
+                    )
+                  ],
+                ),
                 child: Stack(
                   alignment: Alignment.bottomCenter,
                   children: <Widget>[
@@ -61,6 +70,24 @@ class _HomePageState extends State<HomePage> {
                   ],
                 )
               ),
+              SizedBox(height: 40),
+              Column(
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      IconButton(icon: Icon(FeatherIcons.heart, color: Colors.grey), onPressed: (){}),
+                      Text("Unsayable", style: TextStyle(
+                        fontSize: 28, fontWeight: FontWeight.bold
+                      )),
+                      IconButton(icon: Icon(FeatherIcons.moreHorizontal, color: Colors.grey,), onPressed: (){})
+                    ],
+                  ),
+                  Text("Brambles", style: TextStyle(
+                    color: Colors.grey, fontSize: 16, fontWeight: FontWeight.bold
+                  ))
+                ],
+              )
             ],
           ),
         ),
