@@ -16,6 +16,8 @@ dependencies:
   flutter_feather_icons: ^1.0.3
   font_awesome_flutter: ^8.8.1
 
+  flutter_visualizers: ^0.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
