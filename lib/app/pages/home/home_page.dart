@@ -15,6 +15,7 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
+        brightness: Brightness.light,
         leading: IconButton(icon: Icon(FeatherIcons.chevronDown), onPressed: (){}),
         title: Text("Now Playing", style: Theme.of(context).textTheme.title,),
         centerTitle: true,
