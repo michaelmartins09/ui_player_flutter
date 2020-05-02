@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:flutter_visualizers/Visualizers/LineVisualizer.dart';
-import 'package:flutter_visualizers/visualizer.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ui_player_flutter/app/shared/theme/strings.dart';
 
@@ -151,6 +149,44 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: _buildBottomNav(),
+    );
+  }
+
+  _buildBottomNav(){
+    return Card(
+      elevation: 30,
+      margin: EdgeInsets.all(0),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(20),
+        topRight: Radius.circular(20),
+      )),
+      child: BottomNavigationBar(
+        elevation: 0,
+        currentIndex: 0,
+        backgroundColor: Colors.transparent,
+        selectedItemColor: Theme.of(context).primaryColor,
+        unselectedItemColor: Theme.of(context).primaryColor.withOpacity(0.3),
+        type: BottomNavigationBarType.fixed,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(FeatherIcons.home),
+            title: Text("Home")
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(FeatherIcons.search),
+            title: Text("Search")
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.library_music),
+            title: Text("Library")
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(FontAwesomeIcons.fire),
+            title: Text("Hotlist")
+          ),
+        ],
       ),
     );
   }
