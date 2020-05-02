@@ -35,7 +35,8 @@ class _HomePageState extends State<HomePage> {
                   borderRadius: BorderRadius.circular(30),
                   boxShadow: [
                     BoxShadow(
-                      blurRadius: 20,
+                      blurRadius: 30,
+                      offset: Offset(0, 40),
                       color: Theme.of(context).primaryColor.withOpacity(0.2)
                     )
                   ],
@@ -43,18 +44,6 @@ class _HomePageState extends State<HomePage> {
                 child: Stack(
                   alignment: Alignment.bottomCenter,
                   children: <Widget>[
-                    Container(
-                      height: 50,
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Theme.of(context).primaryColor.withOpacity(0.5),
-                            blurRadius: 50,
-                            offset: Offset(0, 20)
-                          )
-                        ]
-                      ),
-                    ),
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
