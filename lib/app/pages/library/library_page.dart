@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:ui_player_flutter/app/models/music_model.dart';
 import 'package:ui_player_flutter/app/shared/theme/strings.dart';
 
 class LibraryPage extends StatefulWidget {
@@ -9,6 +9,15 @@ class LibraryPage extends StatefulWidget {
 }
 
 class _LibraryPageState extends State<LibraryPage> {
+
+  List<MusicModel> listMusic = [
+    MusicModel(id: "01", title: "To Speak Of Solitude", album:"Brambles", duration: "4:21"),
+    MusicModel(id: "02", title: "Unsayable", album:"Brambles", duration: "2:52"),
+    MusicModel(id: "03", title: "In The Androgynous Dark", album:"Brambles", duration: "4:43"),
+    MusicModel(id: "04", title: "Sait Photographs", album:"Brambles", duration: "6:54"),
+    MusicModel(id: "05", title: "Pink And Golden Billows", album:"Brambles", duration: "2:58"),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +73,7 @@ class _LibraryPageState extends State<LibraryPage> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text("Album - 6 songs - 2012", style: TextStyle(
+                    Text("Album - 5 songs - 2012", style: TextStyle(
                       color: Colors.grey
                     )),
                     Text("Charcoal", style: TextStyle(
@@ -129,7 +138,23 @@ class _LibraryPageState extends State<LibraryPage> {
                   ),
                 ),
               ],
-            )
+            ),
+            SizedBox(height: 20),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: listMusic.map((item) => ListTile(
+                  leading: Text(item.id, style: TextStyle(
+                    fontWeight: FontWeight.bold, color: Theme.of(context).primaryColor
+                  )),
+                  title: Text(item.title, style: TextStyle(
+                    fontWeight: FontWeight.bold, color: Theme.of(context).primaryColor
+                  )),
+                  subtitle: Text(item.album),
+                  trailing: IconButton(icon: Icon(Icons.more_horiz, color: Colors.grey), onPressed: (){}),
+                )).toList(),
+              ),
+            ),
           ],
         ),
       ),
