@@ -142,48 +142,50 @@ class _LibraryPageState extends State<LibraryPage> {
             ),
             SizedBox(height: 20),
             Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: listMusic.map((item) => Container(
-                  decoration: BoxDecoration(
-                    gradient: item.isPlay? LinearGradient(
-                      colors: [
-                        Theme.of(context).scaffoldBackgroundColor,
-                        Colors.grey[200],
-                        Colors.grey[200],
-                        Colors.grey[200],
-                        Colors.grey[200],
-                        Colors.grey[200],
-                        Colors.grey[200],
-                        Colors.grey[200],
-                        Colors.grey[200],
-                        Theme.of(context).scaffoldBackgroundColor,
-                        Theme.of(context).scaffoldBackgroundColor,
-                        Theme.of(context).scaffoldBackgroundColor,
-                        Theme.of(context).scaffoldBackgroundColor,
-                        Theme.of(context).scaffoldBackgroundColor,
-                        Theme.of(context).scaffoldBackgroundColor,
-                        Theme.of(context).scaffoldBackgroundColor,
-                        Theme.of(context).scaffoldBackgroundColor,
-                        Theme.of(context).scaffoldBackgroundColor,
-                        Theme.of(context).scaffoldBackgroundColor,
-                        Theme.of(context).scaffoldBackgroundColor,
-                        Theme.of(context).scaffoldBackgroundColor,
-                        Theme.of(context).scaffoldBackgroundColor,
-                      ]
-                    ) : null
-                  ),
-                  child: ListTile(
-                    leading: item.isPlay? Icon(FontAwesomeIcons.solidPauseCircle, color: Theme.of(context).primaryColor) : Text(item.id, style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Theme.of(context).primaryColor
-                    )),
-                    title: Text(item.title, style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Theme.of(context).primaryColor
-                    )),
-                    subtitle: Text(item.album + " - " + item.duration),
-                    trailing: IconButton(icon: Icon(Icons.more_horiz, color: Colors.grey), onPressed: (){}),
-                  ),
-                )).toList(),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: listMusic.map((item) => Container(
+                    decoration: BoxDecoration(
+                      gradient: item.isPlay? LinearGradient(
+                        colors: [
+                          Theme.of(context).scaffoldBackgroundColor,
+                          Colors.grey[200],
+                          Colors.grey[200],
+                          Colors.grey[200],
+                          Colors.grey[200],
+                          Colors.grey[200],
+                          Colors.grey[200],
+                          Colors.grey[200],
+                          Colors.grey[200],
+                          Theme.of(context).scaffoldBackgroundColor,
+                          Theme.of(context).scaffoldBackgroundColor,
+                          Theme.of(context).scaffoldBackgroundColor,
+                          Theme.of(context).scaffoldBackgroundColor,
+                          Theme.of(context).scaffoldBackgroundColor,
+                          Theme.of(context).scaffoldBackgroundColor,
+                          Theme.of(context).scaffoldBackgroundColor,
+                          Theme.of(context).scaffoldBackgroundColor,
+                          Theme.of(context).scaffoldBackgroundColor,
+                          Theme.of(context).scaffoldBackgroundColor,
+                          Theme.of(context).scaffoldBackgroundColor,
+                          Theme.of(context).scaffoldBackgroundColor,
+                          Theme.of(context).scaffoldBackgroundColor,
+                        ]
+                      ) : null
+                    ),
+                    child: ListTile(
+                      leading: item.isPlay? Icon(FontAwesomeIcons.solidPauseCircle, color: Theme.of(context).primaryColor) : Text(item.id, style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Theme.of(context).primaryColor
+                      )),
+                      title: Text(item.title, style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Theme.of(context).primaryColor
+                      )),
+                      subtitle: Text(item.album + " - " + item.duration),
+                      trailing: IconButton(icon: Icon(Icons.more_horiz, color: Colors.grey), onPressed: (){}),
+                    ),
+                  )).toList(),
+                ),
               ),
             ),
           ],
