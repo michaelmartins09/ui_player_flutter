@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:ui_player_flutter/app/shared/theme/strings.dart';
-
+import 'package:ui_player_flutter/app/models/music_model.dart';
+import 'package:ui_player_flutter/app/pages/home/tabs/home_tab.dart';
+import 'package:ui_player_flutter/app/pages/home/tabs/library_tab.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -10,136 +11,35 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
 
+  List<MusicModel> listMusic = [
+    MusicModel(id: "01", title: "To Speak Of Solitude", album:"Brambles", duration: "4:21"),
+    MusicModel(id: "02", title: "Unsayable", album:"Brambles", duration: "2:52", isPlay: true),
+    MusicModel(id: "03", title: "In The Androgynous Dark", album:"Brambles", duration: "4:43"),
+    MusicModel(id: "04", title: "Sait Photographs", album:"Brambles", duration: "6:54"),
+    MusicModel(id: "05", title: "Pink And Golden Billows", album:"Brambles", duration: "2:58"),
+  ];
+
+  int indexPage = 0;
+  PageController _pageController;
+
+  @override
+  void initState() {
+    _pageController = PageController(initialPage: indexPage, keepPage: true);
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        brightness: Brightness.light,
-        leading: IconButton(icon: Icon(FeatherIcons.chevronDown), onPressed: (){}),
-        title: Text("Now Playing", style: Theme.of(context).textTheme.title,),
-        centerTitle: true,
-        actions: <Widget>[
-          IconButton(icon: Icon(Icons.queue_music), onPressed: (){})
+      body: PageView(
+        controller: _pageController,
+        scrollDirection: Axis.horizontal,
+        // onPageChanged: _onChangePage,
+        children: <Widget>[
+          HomeTab(),
+          LibraryTab()
         ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Center(
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                flex: 2,
-                child: Container(
-                  width: size.width * 0.60,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 30,
-                        offset: Offset(0, 40),
-                        color: Theme.of(context).primaryColor.withOpacity(0.2)
-                      )
-                    ],
-                  ),
-                  child: Stack(
-                    alignment: Alignment.bottomCenter,
-                    children: <Widget>[
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage(imgAlbum),
-                          )
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.blueGrey[800].withOpacity(0.5),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                      ),
-                    ],
-                  )
-                ),
-              ),
-              SizedBox(height: 40),
-              Column(
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      IconButton(icon: Icon(FeatherIcons.heart, color: Colors.grey), onPressed: (){}),
-                      Text("Unsayable", style: TextStyle(
-                        fontSize: 28, fontWeight: FontWeight.bold
-                      )),
-                      IconButton(icon: Icon(FeatherIcons.moreHorizontal, color: Colors.grey,), onPressed: (){})
-                    ],
-                  ),
-                  Text("Brambles", style: TextStyle(
-                    color: Colors.grey, fontSize: 16, fontWeight: FontWeight.bold
-                  )),
-                ],
-              ),
-              SizedBox(height: 40),
-              Expanded(
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                      height: 2,
-                      child: LinearProgressIndicator(
-                        value: 0,
-                        backgroundColor: Theme.of(context).primaryColor,
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text("1:04", style: TextStyle(
-                          fontWeight: FontWeight.bold
-                        )),
-                        Text("2:52", style: TextStyle(
-                          color: Colors.grey
-                        )),
-                      ]
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        IconButton(icon: Icon(Icons.shuffle, color: Colors.grey), onPressed: (){}),
-                        IconButton(icon: Icon(FontAwesomeIcons.stepBackward, color: Theme.of(context).primaryColor), onPressed: (){}),
-                        Container(
-                          height: 80,
-                          width: 80,
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColor,
-                            shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Theme.of(context).primaryColor.withOpacity(0.2),
-                                blurRadius: 15,
-                                offset: Offset(0, 15)
-                              )
-                            ]
-                          ),
-                          child: IconButton(
-                            icon: Icon(FontAwesomeIcons.play), 
-                            color: Colors.white,
-                            onPressed: (){}
-                          ),
-                        ),
-                        IconButton(icon: Icon(FontAwesomeIcons.stepForward, color: Theme.of(context).primaryColor), onPressed: (){}),
-                        IconButton(icon: Icon(Icons.repeat, color: Colors.grey), onPressed: (){}),
-                      ]
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
       ),
       bottomNavigationBar: _buildBottomNav(),
     );
@@ -180,5 +80,12 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+  }
+
+  _onChangePage(index){
+    _pageController.jumpToPage(index);
+    setState(() {
+      indexPage = index;
+    });
   }
 }

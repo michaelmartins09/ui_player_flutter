@@ -4,12 +4,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ui_player_flutter/app/models/music_model.dart';
 import 'package:ui_player_flutter/app/shared/theme/strings.dart';
 
-class LibraryPage extends StatefulWidget {
+class LibraryTab extends StatefulWidget {
   @override
-  _LibraryPageState createState() => _LibraryPageState();
+  _LibraryTabState createState() => _LibraryTabState();
 }
 
-class _LibraryPageState extends State<LibraryPage> {
+class _LibraryTabState extends State<LibraryTab> {
 
   List<MusicModel> listMusic = [
     MusicModel(id: "01", title: "To Speak Of Solitude", album:"Brambles", duration: "4:21"),
