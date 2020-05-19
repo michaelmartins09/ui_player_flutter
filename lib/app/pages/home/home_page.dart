@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
   ];
 
   int indexPage = 0;
+  int indexNavBar = 0;
   PageController _pageController;
 
   @override
@@ -35,7 +36,14 @@ class _HomePageState extends State<HomePage> {
       body: PageView(
         controller: _pageController,
         scrollDirection: Axis.horizontal,
-        // onPageChanged: _onChangePage,
+        onPageChanged: (index){
+          if (index == 0) {
+            setState(() { indexNavBar = 0; });
+          }
+          if (index == 1) {
+            setState(() { indexNavBar = 2; });
+          }
+        },
         children: <Widget>[
           HomeTab(),
           LibraryTab()
@@ -55,11 +63,21 @@ class _HomePageState extends State<HomePage> {
       )),
       child: BottomNavigationBar(
         elevation: 0,
-        currentIndex: 0,
+        currentIndex: indexNavBar,
         backgroundColor: Colors.transparent,
         selectedItemColor: Theme.of(context).primaryColor,
         unselectedItemColor: Theme.of(context).primaryColor.withOpacity(0.3),
         type: BottomNavigationBarType.fixed,
+        onTap: (index){
+          if (index == 0) {
+            _pageController.animateToPage(index, duration: Duration(milliseconds: 600), curve: Curves.decelerate);
+            setState(() { indexPage = index; indexNavBar = 0;});
+          }
+          if (index == 2) {
+            _pageController.animateToPage(1, duration: Duration(milliseconds: 600), curve: Curves.decelerate);
+            setState(() { indexPage = 1; indexNavBar = 2;});
+          }
+        },
         items: [
           BottomNavigationBarItem(
             icon: Icon(FeatherIcons.home),
@@ -80,12 +98,5 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
-  }
-
-  _onChangePage(index){
-    _pageController.jumpToPage(index);
-    setState(() {
-      indexPage = index;
-    });
   }
 }
