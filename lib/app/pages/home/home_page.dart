@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         brightness: Brightness.light,
         leading: IconButton(icon: Icon(FeatherIcons.chevronDown), onPressed: (){}),
-        title: Text("Now Playing", style: Theme.of(context).textTheme.title,),
+        title: Text("Now Playing", style: Theme.of(context).textTheme.headline1,),
         centerTitle: true,
         actions: <Widget>[
           IconButton(icon: Icon(Icons.queue_music), onPressed: (){})

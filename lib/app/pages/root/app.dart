@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ui_player_flutter/app/pages/library/library_page.dart';
 
-import '../home/home_page.dart';
-
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -22,7 +20,7 @@ class App extends StatelessWidget {
             color: Colors.blueGrey[900]
           ),
           textTheme: TextTheme(
-            title: TextStyle(
+            headline1: TextStyle(
               color: Colors.blueGrey[900],
               fontWeight: FontWeight.bold
             )
