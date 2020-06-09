@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ui_player_flutter/app/models/music_model.dart';
-import 'package:ui_player_flutter/app/shared/theme/strings.dart';
+import 'package:ui_player_flutter/app/shared/constant/strings.dart';
 
-class LibraryPage extends StatefulWidget {
+class LibraryTab extends StatefulWidget {
   @override
-  _LibraryPageState createState() => _LibraryPageState();
+  _LibraryTabState createState() => _LibraryTabState();
 }
 
-class _LibraryPageState extends State<LibraryPage> {
+class _LibraryTabState extends State<LibraryTab> {
 
   List<MusicModel> listMusic = [
     MusicModel(id: "01", title: "To Speak Of Solitude", album:"Brambles", duration: "4:21"),
@@ -152,24 +152,6 @@ class _LibraryPageState extends State<LibraryPage> {
                         colors: [
                           Theme.of(context).scaffoldBackgroundColor,
                           Colors.grey[200],
-                          Colors.grey[200],
-                          Colors.grey[200],
-                          Colors.grey[200],
-                          Colors.grey[200],
-                          Colors.grey[200],
-                          Colors.grey[200],
-                          Colors.grey[200],
-                          Theme.of(context).scaffoldBackgroundColor,
-                          Theme.of(context).scaffoldBackgroundColor,
-                          Theme.of(context).scaffoldBackgroundColor,
-                          Theme.of(context).scaffoldBackgroundColor,
-                          Theme.of(context).scaffoldBackgroundColor,
-                          Theme.of(context).scaffoldBackgroundColor,
-                          Theme.of(context).scaffoldBackgroundColor,
-                          Theme.of(context).scaffoldBackgroundColor,
-                          Theme.of(context).scaffoldBackgroundColor,
-                          Theme.of(context).scaffoldBackgroundColor,
-                          Theme.of(context).scaffoldBackgroundColor,
                           Theme.of(context).scaffoldBackgroundColor,
                           Theme.of(context).scaffoldBackgroundColor,
                         ]
