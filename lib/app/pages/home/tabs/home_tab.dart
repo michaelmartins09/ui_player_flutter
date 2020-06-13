@@ -32,44 +32,42 @@ class _HomeTabState extends State<HomeTab> {
         child: Center(
           child: Column(
             children: <Widget>[
-              Expanded(
-                flex: 2,
-                child: Container(
-                  width: size.width * 0.60,
-                  height: size.width * 0.60,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 30,
-                        offset: Offset(0, 40),
-                        color: Theme.of(context).primaryColor.withOpacity(0.2)
-                      )
-                    ],
-                  ),
-                  child: Stack(
-                    alignment: Alignment.bottomCenter,
-                    children: <Widget>[
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage(imgAlbum),
-                          )
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.blueGrey[800].withOpacity(0.5),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                      ),
-                    ],
-                  )
+              Expanded(child: Container(), flex: 1,),
+              Container(
+                width: size.width * 0.60,
+                height: size.width * 0.60,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 30,
+                      offset: Offset(0, 40),
+                      color: Theme.of(context).primaryColor.withOpacity(0.2)
+                    )
+                  ],
                 ),
+                child: Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: AssetImage(imgAlbum),
+                        )
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.blueGrey[800].withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
+                  ],
+                )
               ),
-              SizedBox(height: 40),
+              SizedBox(height: 60),
               Column(
                 children: <Widget>[
                   Row(
