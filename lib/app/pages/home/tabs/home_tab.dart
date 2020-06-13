@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:ui_player_flutter/app/shared/theme/strings.dart';
+import 'package:ui_player_flutter/app/shared/constant/strings.dart';
 
 
 class HomeTab extends StatefulWidget {
@@ -17,7 +17,11 @@ class _HomeTabState extends State<HomeTab> {
       appBar: AppBar(
         brightness: Brightness.light,
         leading: IconButton(icon: Icon(FeatherIcons.chevronDown), onPressed: (){}),
-        title: Text("Now Playing", style: Theme.of(context).textTheme.title,),
+        title: Text("Now Playing", style: TextStyle(
+          color: Colors.blueGrey[900],
+          fontWeight: FontWeight.bold,
+          fontSize: 22
+        )),
         centerTitle: true,
         actions: <Widget>[
           IconButton(icon: Icon(Icons.queue_music), onPressed: (){})
@@ -28,43 +32,42 @@ class _HomeTabState extends State<HomeTab> {
         child: Center(
           child: Column(
             children: <Widget>[
-              Expanded(
-                flex: 2,
-                child: Container(
-                  width: size.width * 0.60,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 30,
-                        offset: Offset(0, 40),
-                        color: Theme.of(context).primaryColor.withOpacity(0.2)
-                      )
-                    ],
-                  ),
-                  child: Stack(
-                    alignment: Alignment.bottomCenter,
-                    children: <Widget>[
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage(imgAlbum),
-                          )
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.blueGrey[800].withOpacity(0.5),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                      ),
-                    ],
-                  )
+              Expanded(child: Container(), flex: 1,),
+              Container(
+                width: size.width * 0.60,
+                height: size.width * 0.60,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 30,
+                      offset: Offset(0, 40),
+                      color: Theme.of(context).primaryColor.withOpacity(0.2)
+                    )
+                  ],
                 ),
+                child: Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: AssetImage(imgAlbum),
+                        )
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.blueGrey[800].withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
+                  ],
+                )
               ),
-              SizedBox(height: 40),
+              SizedBox(height: 60),
               Column(
                 children: <Widget>[
                   Row(
