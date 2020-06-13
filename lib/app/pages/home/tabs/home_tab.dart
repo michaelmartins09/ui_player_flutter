@@ -36,6 +36,7 @@ class _HomeTabState extends State<HomeTab> {
                 flex: 2,
                 child: Container(
                   width: size.width * 0.60,
+                  height: size.width * 0.60,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
